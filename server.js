@@ -1,4 +1,5 @@
 const app = require('express')();
+const express = require('express');
 const http = require('http').createServer(app);
 const io = require('socket.io')(http);
 const bodyParser = require('body-parser');
@@ -7,6 +8,7 @@ const cartService = require('./cart.service');
 const foodItems = require('./data/food-items');
 
 let cart = [];
+const port = 3000;
 
 const jsonParser = bodyParser.json();
 
@@ -17,7 +19,7 @@ app.use((req, res, next) => {
     next();
 });
 
-// app.use(express.static("client/build"));
+app.use(express.static("client/build"));
 
 app.get('/', (req, res) => {
     res.sendFile(__dirname + '/index.html');
@@ -49,8 +51,8 @@ app.put('/api/food-item', jsonParser, (req, res) => {
     res.sendStatus(200);
 });
 
-http.listen(3001, () => {
-    console.log('listening on *:3001');
+http.listen(port, () => {
+    console.log(`listening on ${port}`);
 });
 
 io.on('connection', (socket) => {
