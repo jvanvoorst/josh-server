@@ -21,3 +21,10 @@ start app
 npm run start
 ```
 app can now be seen at http://localhost:3000
+
+# Docker
+
+app is also available as a docker image
+```
+docker run --name my-react-app -p 3000:3000 -d jvanvoorst/produce-store
+```
