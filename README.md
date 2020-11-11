@@ -26,5 +26,5 @@ app can now be seen at http://localhost:3000
 
 app is also available as a docker image
 ```
-docker run --name my-react-app -p 3000:3000 -d jvanvoorst/produce-store
+docker run --name produce-store -p 3000:3000 -d jvanvoorst/produce-store
 ```
